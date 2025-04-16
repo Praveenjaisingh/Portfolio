@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">My Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm <span>PRAVEEN</span></h1>
+            <p>A passionate Full-stack Developer</p>
+            <h2>EMAIL I'D:<span>(praveendp143@gmail.com)</span></h2>
+            <h2>contact:(8870346885)</h2>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/praveen.png" alt="PRAVEEN" />
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>Hello, I’m PRAVEEN, a full-stack developer with a passion for creating beautiful, user-friendly websites and web applications. I am skilled in HTML, CSS,JavaScript,java,sql(oracle). I'm always eager to learn new technologies and grow my skills to stay up-to-date with the latest industry trends.</p>
+    </section>
+
+<section id="skills" class="skills">
+    <h2>Programming Skills</h2>
+    <div class="skill">
+        <span>HTML</span>
+        <div class="skill-bar">
+            <div class="skill-percentage" style="width: 80%;">80%</div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>CSS</span>
+        <div class="skill-bar">
+            <div class="skill-percentage" style="width: 70%;">75%</div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>JavaScript</span>
+        <div class="skill-bar">
+            <div class="skill-percentage" style="width: 65%;">65%</div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>Java</span>
+        <div class="skill-bar">
+            <div class="skill-percentage" style="width: 75%;">75%</div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>Sql(oracle)</span>
+        <div class="skill-bar">
+            <div class="skill-percentage" style="width: 70%;">70%</div>
+        </div>
+    </div>
+</section>
+
+
+    <section id="projects" class="projects">
+        <h2>My ProjectS</h2>
+          <div class="project-card">
+            <h3>Project 1</h3>
+            <h4>MUSIC STREAMING APP:</h4>
+            <p>* Designed a user friendly music streaming app with unique FM radio feature,enhancing user engagement and accessibility.
+                <br>* Focused on intuitive UI/UX design, ensuring smooth navigation and and a visually applealing interface.</p>
+         </div>
+             <div class="project-card">
+             <h3>project-2</h3>
+            <h4>E-COMMERCE APP:</h4>
+            <p>*A smart marketplace connecting farmers and local markets,leveraging Reaact.JS/Flutter(frontend),Node js/java(backend),oraclesql/firebase(database),Iot sensors(produce monitoring),block chain(smart contracts),and AWS/Google cloud(hosting) to ensure price transparancy and efficient supply chain management.
+                <br>* Enhancing market efficiency by integrating real time data analytics,Iot driven quality montoring, and secure blockchain transactions,reducing wastage,ensuring fair pricing,and enpowering farmers with direct market access.</p>
+           </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="sci">
+            <a href="https://github.com/dppravee" target="_blank" aria-label="PRAVEEN J">
+                <i class='bx bxl-github'></i>
+            </a>
+            <a href="https://linkedin.com/in/praveen j" target="_blank" aria-label="praveen j">
+                <i class='bx bxl-linkedin'></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 PRAVEEN | All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></Script>
+</body>
+</html>

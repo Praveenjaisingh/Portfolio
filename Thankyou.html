@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #1f242d;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #2c313c;
+      padding: 50px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease forwards;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #7cf03d;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+    a.btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #7cf03d;
+      color: #1f242d;
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.3s;
+    }
+    a.btn:hover {
+      background: #5a8f1d;
+      transform: translateY(-3px);
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @media(max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Thank You!</h1>
+    <p>Your message has been sent successfully. I will get back to you soon.</p>
+    <a href="index.html" class="btn">Back to Home</a>
+  </div>
+</body>
+</html>

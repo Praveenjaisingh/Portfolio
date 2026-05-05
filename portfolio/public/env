@@ -1,0 +1,17 @@
+
+APP_NAME=Portfolio
+APP_ENV=local
+APP_URL=http://localhost:3000
+
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=praveendp146@gmail.com
+SMTP_PASSWORD=mgwzioocaamdmkvd
+SMTP_FROM=praveendp146@gmail.com
+SMTP_FROM_NAME=Portfolio
+SMTP_ENCRYPTION=tls
+SMTP_TO=praveendp146@gmail.com
+
+
+ADMIN_EMAIL=praveendp146@gmail.com

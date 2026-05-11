@@ -104,8 +104,8 @@
     }
 
     .hero .hero-image img {
-        width: 420px;
-        height: 420px;
+        width: 320px;
+        height: 320px;
         border-radius: 50%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         animation: fadeInScale 1.5s ease-out;

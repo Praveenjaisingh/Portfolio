@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             background: #0f172a;
-            font-family: 'Poppins', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .wrapper {
@@ -135,16 +135,22 @@
                     <table class="info-table">
                         <tr>
                             <td class="label">👤 Name</td>
-                            <td class="value">{{name}}</td>
+                            <td class="value" style="font-family: Arial, Helvetica, sans-serif; color:#ffffff;">
+                                {{name}}
+                            </td>
                         </tr>
                         <tr>
                             <td class="label">📧 Email</td>
-                            <td class="value">{{email}}</td>
+                            <td class="value" style="font-family: Arial, Helvetica, sans-serif; color:#ffffff;">
+                                {{email}}
+                            </td>
                         </tr>
                     </table>
                     <div class="message-box">
                         <strong>💬 Message</strong>
-                        <p style="margin-top:10px;">{{message}}</p>
+                        <p style="margin-top:10px; font-family: Arial, Helvetica, sans-serif; color:#e2e8f0;">
+                            {{message}}
+                        </p>
                     </div>
                 </td>
             </tr>

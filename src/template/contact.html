@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Portfolio Contact</title>
+
     <style>
         body {
             margin: 0;
@@ -21,12 +22,10 @@
             width: 600px;
             max-width: 100%;
             margin: auto;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            background: #0b1220;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(0, 212, 170, 0.15);
-            backdrop-filter: blur(10px);
+            border: 1px solid #1f2937;
         }
 
         .header {
@@ -38,7 +37,7 @@
 
         .header h1 {
             margin: 0;
-            font-size: 26px;
+            font-size: 24px;
         }
 
         .header p {
@@ -55,40 +54,37 @@
         .content p {
             font-size: 15px;
             line-height: 1.6;
-            margin-bottom: 20px;
         }
 
         .info-table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
+            border-spacing: 0;
+            margin-top: 15px;
         }
 
         .info-table td {
             padding: 12px;
+            border: 1px solid #1f2937;
             font-size: 14px;
         }
 
         .label {
-            background: rgba(0, 212, 170, 0.1);
-            font-weight: 600;
             width: 120px;
+            background: #111827;
             color: #00d4aa;
-            border-radius: 6px;
+            font-weight: bold;
         }
 
         .value {
-            background: rgba(255, 255, 255, 0.03);
-            color: #ffffff;
-            border-radius: 6px;
+            background: #111827;
         }
 
         .message-box {
             margin-top: 25px;
             padding: 20px;
-            background: rgba(0, 212, 170, 0.08);
+            background: #0b2a24;
             border-left: 4px solid #00d4aa;
-            border-radius: 10px;
+            border-radius: 8px;
             color: #e2e8f0;
         }
 
@@ -104,21 +100,17 @@
             color: #00d4aa;
         }
 
-        @media(max-width: 600px) {
+        @media(max-width:600px) {
             .card {
                 width: 100%;
-            }
-
-            .header h1 {
-                font-size: 20px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
 
+    <div class="wrapper">
         <table class="card">
             <tr>
                 <td class="header">
@@ -135,20 +127,24 @@
                     <table class="info-table">
                         <tr>
                             <td class="label">👤 Name</td>
-                            <td class="value" style="font-family: Arial, Helvetica, sans-serif; color:#ffffff;">
-                                {{name}}
+                            <td class="value">
+                                <span style="color:#ffffff; font-family: Arial, Helvetica, sans-serif;">
+                                    {{name}}
+                                </span>
                             </td>
                         </tr>
                         <tr>
                             <td class="label">📧 Email</td>
-                            <td class="value" style="font-family: Arial, Helvetica, sans-serif; color:#ffffff;">
-                                {{email}}
+                            <td class="value">
+                                <span style="color:#ffffff; font-family: Arial, Helvetica, sans-serif;">
+                                    {{email}}
+                                </span>
                             </td>
                         </tr>
                     </table>
                     <div class="message-box">
                         <strong>💬 Message</strong>
-                        <p style="margin-top:10px; font-family: Arial, Helvetica, sans-serif; color:#e2e8f0;">
+                        <p style="margin-top:10px; color:#e2e8f0; font-family: Arial, Helvetica, sans-serif;">
                             {{message}}
                         </p>
                     </div>
@@ -162,6 +158,7 @@
             </tr>
         </table>
     </div>
+
 </body>
 
 </html>

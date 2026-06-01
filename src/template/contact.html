@@ -5,85 +5,157 @@
 <head>
     <meta charset="UTF-8">
     <title>New Portfolio Contact</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f172a;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .wrapper {
+            padding: 40px 10px;
+        }
+
+        .card {
+            width: 600px;
+            max-width: 100%;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 212, 170, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #00d4aa, #0f172a);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .header p {
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+            color: #cbd5e1;
+        }
+
+        .content p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .info-table td {
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .label {
+            background: rgba(0, 212, 170, 0.1);
+            font-weight: 600;
+            width: 120px;
+            color: #00d4aa;
+            border-radius: 6px;
+        }
+
+        .value {
+            background: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            border-radius: 6px;
+        }
+
+        .message-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0, 212, 170, 0.08);
+            border-left: 4px solid #00d4aa;
+            border-radius: 10px;
+            color: #e2e8f0;
+        }
+
+        .footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 18px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer strong {
+            color: #00d4aa;
+        }
+
+        @media(max-width: 600px) {
+            .card {
+                width: 100%;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 
-<body style="margin:0; padding:0; background:#eef1f7; font-family: 'Segoe UI', Arial, sans-serif;">
+<body>
+    <div class="wrapper">
 
-    <table width="100%" cellpadding="0" cellspacing="0" style="padding:30px 10px;">
-        <tr>
-            <td align="center">
-                <table width="600" cellpadding="0" cellspacing="0"
-                    style="background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 8px 25px rgba(0,0,0,0.12);">
-                    <tr>
-                        <td style="
-                    background: linear-gradient(135deg, #7cf03d, #1f242d);
-                    color:#ffffff;
-                    padding:30px;
-                    text-align:center;
-                ">
-                            <h1 style="margin:0; font-size:26px;">📩 New Contact Message</h1>
-                            <p style="margin:8px 0 0; font-size:15px; opacity:0.9;">
-                                Someone reached you via your portfolio 🚀
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:30px; color:#333333;">
-
-                            <p style="font-size:16px; margin-bottom:25px;">
-                                Hello <strong>Praveen</strong>,<br>
-                                You’ve received a new message from your portfolio contact form.
-                            </p>
-                            <table width="100%" cellpadding="0" cellspacing="0" style="font-size:15px;">
-                                <tr>
-                                    <td style="padding:10px; background:#f4f6fb; font-weight:bold; width:120px;">
-                                        👤 Name
-                                    </td>
-                                    <td style="padding:10px;">{{name}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:10px; background:#f4f6fb; font-weight:bold;">
-                                        📧 Email
-                                    </td>
-                                    <td style="padding:10px;">{{email}}</td>
-                                </tr>
-                            </table>
-                            <div style="
-                        margin-top:25px;
-                        padding:20px;
-                        background:#f9fff4;
-                        border-left:5px solid #7cf03d;
-                        border-radius:8px;
-                    ">
-                                <p style="margin:0 0 8px; font-weight:bold;">💬 Message</p>
-                                <p style="margin:0; font-size:15px; line-height:1.6;">
-                                    {{message}}
-                                </p>
-                            </div>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="
-                    background:#1f242d;
-                    color:#cccccc;
-                    padding:18px;
-                    text-align:center;
-                    font-size:13px;
-                ">
-                            <strong style="color:#7cf03d;">PRAVEEN</strong><br>
-                            Portfolio Contact Notification
-                        </td>
-                    </tr>
-
-                </table>
-
-            </td>
-        </tr>
-        ```
-
-    </table>
-
+        <table class="card">
+            <tr>
+                <td class="header">
+                    <h1>📩 New Contact Message</h1>
+                    <p>Someone reached you via your portfolio 🚀</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="content">
+                    <p>
+                        Hello <strong style="color:#00d4aa;">Praveen</strong>,<br>
+                        You’ve received a new message from your portfolio contact form.
+                    </p>
+                    <table class="info-table">
+                        <tr>
+                            <td class="label">👤 Name</td>
+                            <td class="value">{{name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">📧 Email</td>
+                            <td class="value">{{email}}</td>
+                        </tr>
+                    </table>
+                    <div class="message-box">
+                        <strong>💬 Message</strong>
+                        <p style="margin-top:10px;">{{message}}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="footer">
+                    <strong>PRAVEEN</strong><br>
+                    Portfolio Contact Notification
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>

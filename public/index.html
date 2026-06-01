@@ -3,231 +3,270 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    <title>Praveen J | Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">My Portfolio</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Praveen J</div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hello, I'm <span>PRAVEEN</span></h1>
-            <p>A passionate Full-Stack Developer</p>
-            <h2>Email ID:
-                <span>(praveendp143@gmail.com)</span>
-            </h2>
-            <h2>Contact: (8870346885)</h2>
-            <a href="#contact" class="btn">Contact Me</a>
+            <h4>👋 Welcome To My Portfolio</h4>
+            <h1>Hi, I'm <span>Praveen J</span></h1>
+            <h3>Full Stack Developer | PHP(Laravel) | Node.js | Core Java | Java Scricpt</h3>
+            <p>
+                I build modern web applications with clean UI,
+                scalable backend architecture, and performance-focused
+                development practices.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="Praveen-resume .pdf" class="btn-outline" target="_blank">
+                    Download Resume
+                </a>
+            </div>
+            <div class="hero-socials">
+                <a href="https://github.com/praveenjaisingh" target="_blank">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://linkedin.com/in/Praveen-j-37b64632b" target="_blank">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+            </div>
         </div>
         <div class="hero-image">
-            <img src="images/Praveen.png" alt="PRAVEEN">
+            <img src="images/Praveen.png" alt="Praveen">
         </div>
     </section>
-    <section id="about" class="about">
-        <h2>About Me</h2>
+    <section class="stats">
+        <div class="stat-card">
+            <h2>6+</h2>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-card">
+            <h2>10+</h2>
+            <p>Technologies Used</p>
+        </div>
+        <div class="stat-card">
+            <h2>100%</h2>
+            <p>Responsive Design</p>
+        </div>
+    </section>
+    <section id="about" class="about section">
+        <h2 class="section-title">About Me</h2>
         <p>
-            Hello, I’m PRAVEEN, a passionate Full-Stack Developer with experience in building responsive,
-            user-friendly websites and web applications.
-            I am skilled in HTML, CSS, JavaScript, Node.js, PHP (Laravel), Java, , My SQL and Postgres SQL.
-            I enjoy learning new technologies and continuously improving my development skills to stay updated
-            with the latest industry trends.
+            I'm a Full Stack Developer specializing in Laravel,
+            Node.js, JavaScript, PostgreSQL, and modern frontend
+            technologies.
+            I enjoy solving real-world problems through software,
+            creating intuitive user experiences, and building
+            scalable applications.
+            My goal is to develop secure, efficient, and impactful
+            digital solutions.
         </p>
     </section>
-    <section id="skills" class="skills">
-        <h2>Programming Skills</h2>
-        <div class="skill">
-            <span>HTML</span>
-            <div class="skill-bar">
-                <div class="skill-percentage" style="width: 80%;">
-                    80%
-                </div>
+    <section id="skills" class="skills section">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class='bx bxl-html5'></i>
+                <h3>HTML5</h3>
             </div>
-        </div>
-        <div class="skill">
-            <span>CSS</span>
-            <div class="skill-bar">
-                <div class="skill-percentage" style="width: 75%;">
-                    75%
-                </div>
+            <div class="skill-card">
+                <i class='bx bxl-css3'></i>
+                <h3>CSS3</h3>
             </div>
-        </div>
-        <div class="skill">
-            <span>JavaScript</span>
-            <div class="skill-bar">
-                <div class="skill-percentage" style="width: 65%;">
-                    65%
-                </div>
+            <div class="skill-card">
+                <i class='bx bxl-javascript'></i>
+                <h3>JavaScript</h3>
             </div>
-        </div>
-        <div class="skill">
-            <span>Node.js</span>
-            <div class="skill-bar">
-                <div class="skill-percentage" style="width: 70%;">
-                    70%
-                </div>
+            <div class="skill-card">
+                <i class='bx bxl-nodejs'></i>
+                <h3>Node.js</h3>
             </div>
-        </div>
-        <div class="skill">
-            <span>PHP (Laravel)</span>
-            <div class="skill-bar">
-                <div class="skill-percentage" style="width: 85%;">
-                    85%
-                </div>
+            <div class="skill-card">
+                <i class='bx bxl-php'></i>
+                <h3>Laravel</h3>
             </div>
-        </div>
-        <div class="skill">
-            <span>Java</span>
-            <div class="skill-bar">
-                <div class="skill-percentage" style="width: 75%;">
-                    75%
-                </div>
+            <div class="skill-card">
+                <i class='bx bxl-java'></i>
+                <h3>Java</h3>
             </div>
-        </div>
-        <div class="skill">
-            <span>SQL (My SQL,Postgres)</span>
-            <div class="skill-bar">
-                <div class="skill-percentage" style="width: 70%;">
-                    70%
-                </div>
+            <div class="skill-card">
+                <i class='bx bxs-data'></i>
+                <h3>MySQL</h3>
+            </div>
+            <div class="skill-card">
+                <i class='bx bxs-server'></i>
+                <h3>PostgreSQL</h3>
             </div>
         </div>
     </section>
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <div class="project-card">
-            <h3>Location Tracker</h3>
-            <h4>IP-Locator</h4>
-            <p>
-                *Created a location tracking website using IP-Address.
-                <br><br>
-                * Designed using clean UI/UX principles with smooth navigation and responsive layouts.
-                <br><br>
-                * Optimized for performance and accessibility across desktop and mobile devices.
-            </p>
-            <a href="https://ip-bice-rho.vercel.app/" target="_blank" class="btn">
-                Live Demo
-            </a>
-        </div>
-        <div class="project-card">
-            <h3>AI Platform</h3>
-            <h4>Self AI</h4>
-            <p>
-                * Developed an AI-powered Platform for self Searching.
-                <br><br>
-                * Implemented responsive frontend design with interactive features and modern UI components.
-                <br><br>
-                * Focused on improving user engagement, accessibility, and performance optimization.
-            </p>
-            <a href="https://self-ai-seven.vercel.app/" target="_blank" class="btn">
-                Live Demo
-            </a>
-        </div>
-        <div class="project-card">
-            <h3>City Exploration Website</h3>
-            <h4>Explore City</h4>
-            <p>
-                * Built a responsive city exploration web application showcasing tourist attractions,
-                famous places, and local information.
-                <br><br>
-                * Designed visually appealing layouts with smooth navigation and mobile-friendly UI.
-                <br><br>
-                * Enhanced user experience through interactive sections and optimized performance.
-            </p>
-            <a href="https://explore-city-phi.vercel.app/" target="_blank" class="btn">
-                Live Demo
-            </a>
-        </div>
-        <div class="project-card">
-            <h3>Smart AgriConnect</h3>
-            <h4>Agriculture E-Commerce Platform</h4>
-            <p>
-                * Developed a full-stack agricultural e-commerce platform for farmers and buyers
-                using HTML, CSS, JavaScript, Node.js, and Postgres SQL.
-                <br><br>
-                * Implemented authentication, dynamic product listings, shopping cart,
-                and order management functionality.
-                <br><br>
-                * Improved backend performance, database efficiency, security,
-                and responsive design across devices.
-            </p>
-            <a href="https://smart-agri-connect-gamma.vercel.app/" target="_blank" class="btn">
-                Live Demo
-            </a>
-        </div>
-        <div class="project-card">
-            <h3>AI-Resume-Analyzer</h3>
-            <h4>Resume Editer</h4>
-            <p>
-                *Created a website for updating the resumes in PDF format.
-                <br><br>
-                * Designed using clean UI/UX principles with smooth navigation and responsive layouts.
-                <br><br>
-                * Optimized for performance and accessibility across desktop and mobile devices.
-            </p>
-            <a href="https://ai-resume-analyzer-nine-weld.vercel.app/" target="_blank" class="btn">
-                Live Demo
-            </a>
-        </div>
-        <div class="project-card">
-            <h3>RT-Interview-Platform</h3>
-            <h4>Real-Time-Interview-Platform</h4>
-            <p>
-                *Created a Real-Time-Interview-Platform website for the test experience.
-                <br><br>
-                * Designed using clean UI/UX principles with smooth navigation and responsive layouts.
-                <br><br>
-                * Optimized for performance and accessibility across desktop and mobile devices.
-            </p>
-            <a href="https://real-time-interview-platform-zeta.vercel.app/" target="_blank" class="btn">
-                Live Demo
-            </a>
+    <section id="projects" class="projects section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>IP Locator</h3>
+                <p>
+                    Location tracking platform using IP address
+                    geolocation with responsive UI and optimized
+                    performance.
+                </p>
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="https://ip-bice-rho.vercel.app/" target="_blank" class="btn">
+                    Live Demo
+                </a>
+            </div>
+            <div class="project-card">
+                <h3>Self AI</h3>
+                <p>
+                    AI-powered search platform focused on intelligent
+                    information retrieval and user interaction.
+                </p>
+                <div class="tags">
+                    <span>AI</span>
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                </div>
+                <a href="https://self-ai-seven.vercel.app/" target="_blank" class="btn">
+                    Live Demo
+                </a>
+            </div>
+            <div class="project-card">
+                <h3>Explore City</h3>
+                <p>
+                    * Built a responsive city exploration web application showcasing tourist attractions,
+                    famous places, and local information.
+                </p>
+                <div class="tags">
+                    <span>Node.js</span>
+                    <span>PostgreSQL</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="https://explore-city-phi.vercel.app/" target="_blank" class="btn">
+                    Live Demo
+                </a>
+            </div>
+            <div class="project-card">
+                <h3>Smart AgriConnect</h3>
+                <p>
+                    Full-stack agriculture e-commerce platform for
+                    farmers and buyers with authentication and
+                    order management.
+                </p>
+                <div class="tags">
+                    <span>Node.js</span>
+                    <span>PostgreSQL</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="https://smart-agri-connect-gamma.vercel.app/" target="_blank" class="btn">
+                    Live Demo
+                </a>
+            </div>
+            <div class="project-card">
+                <h3>AI Resume Analyzer</h3>
+                <p>
+                    Resume enhancement and PDF analysis platform
+                    powered by AI technologies.
+                </p>
+                <div class="tags">
+                    <span>AI</span>
+                    <span>PDF</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="https://ai-resume-analyzer-nine-weld.vercel.app/" target="_blank" class="btn">
+                    Live Demo
+                </a>
+            </div>
+            <div class="project-card">
+                <h3>Real-Time-Interview-Platform</h3>
+                <p>
+                    *Created a Real-Time-Interview-Platform website for the test experience.
+                </p>
+                <div class="tags">
+                    <span>Node.js</span>
+                    <span>PostgreSQL</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="https://real-time-interview-platform-zeta.vercel.app/" target="_blank" class="btn">
+                    Live Demo
+                </a>
+            </div>
         </div>
     </section>
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
+    <section id="journey" class="journey section">
+        <h2 class="section-title">My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>2024</h3>
+                <p>Started Full Stack Development Journey.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2025</h3>
+                <p>Built AI, E-Commerce, and SaaS Applications.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2026</h3>
+                <p>Currently working as a Backend-developer and Focused on scalable web solutions and backend systems.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-info">
+            <div>
+                <i class='bx bx-envelope'></i>
+                praveendp143@gmail.com
+            </div>
+            <div>
+                <i class='bx bx-phone'></i>
+                8870346885
+            </div>
+            <div>
+                <i class='bx bx-map'></i>
+                Madurai, Tamil Nadu
+            </div>
+        </div>
         <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Your Message" required>
-            </textarea>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn">
                 Send Message
             </button>
         </form>
-        <div class="sci">
-            <a href="https://github.com/praveenjaisingh" target="_blank" aria-label="GitHub">
-                <i class='bx bxl-github'></i>
-            </a>
-            <a href="https://linkedin.com/in/Praveen-j-37b64632b" target="_blank" aria-label="LinkedIn">
-                <i class='bx bxl-linkedin'></i>
-            </a>
-        </div>
     </section>
     <footer class="footer">
-        <p>
-            &copy; 2026 PRAVEEN | All Rights Reserved
-        </p>
+        <h3>Praveen J</h3>
+        <p>Full Stack Developer</p>
+        <p>© 2026 All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
+
 </body>
 
 </html>

@@ -4,7 +4,7 @@ function speakWelcome() {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance(
-        "Hi, I'm Praveen. Welcome to my portfolio. I'm a Full Stack Developer specializing in Node.js, Laravel, and PostgreSQL. Feel free to explore my work. If you have any queries, please reach out. Thank you!"
+        "Hi, I'm Praveen. Welcome to my portfolio. I'm a Full Stack Developer specializing in Nodejs, Laravel, and PostgreSQL. Feel free to explore my work. If you have any queries, please reach out. Thank you!"
     );
     msg.rate = 0.92;
     msg.pitch = 1.05;

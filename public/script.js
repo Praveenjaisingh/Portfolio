@@ -9,44 +9,40 @@ function speakWelcome() {
     msg.rate = 0.92;
     msg.pitch = 1.05;
     msg.volume = 1;
+
+    function assignVoiceAndSpeak() {
+        const voices = window.speechSynthesis.getVoices();
+        const preferred = voices.find(v => v.lang === 'en-US' && v.name.toLowerCase().includes('male'))
+            || voices.find(v => v.lang === 'en-US')
+            || voices.find(v => v.lang.startsWith('en'));
+        if (preferred) msg.voice = preferred;
+        window.speechSynthesis.speak(msg);
+    }
+
     const voices = window.speechSynthesis.getVoices();
-    const preferred = voices.find(v => v.lang === 'en-US' && v.name.toLowerCase().includes('male'))
-        || voices.find(v => v.lang === 'en-US')
-        || voices.find(v => v.lang.startsWith('en'));
-    if (preferred) msg.voice = preferred;
-    window.speechSynthesis.speak(msg);
-    return msg;
+    if (voices.length > 0) {
+        assignVoiceAndSpeak();
+    } else {
+        window.speechSynthesis.onvoiceschanged = () => {
+            window.speechSynthesis.onvoiceschanged = null;
+            assignVoiceAndSpeak();
+        };
+    }
 }
 
-window.addEventListener('load', () => {
+function onFirstInteraction() {
     if (voiceHasPlayed) return;
-    setTimeout(() => {
-        if (!voiceHasPlayed) {
-            speakWelcome();
-            voiceHasPlayed = true;
-        }
-    }, 1200);
-});
+    voiceHasPlayed = true;
+    ['mousemove', 'click', 'scroll', 'touchstart'].forEach(evt =>
+        document.removeEventListener(evt, onFirstInteraction)
+    );
+    speakWelcome();
+}
 
-window.speechSynthesis.onvoiceschanged = () => {
-    if (!voiceHasPlayed) {
-        speakWelcome();
-        voiceHasPlayed = true;
-    }
-};
+['mousemove', 'click', 'scroll', 'touchstart'].forEach(evt =>
+    document.addEventListener(evt, onFirstInteraction, { passive: true })
+);
 
-let hoverCooldown = false;
-document.addEventListener('DOMContentLoaded', () => {
-    const imgWrap = document.querySelector('.hero-img-wrap');
-    if (imgWrap) {
-        imgWrap.addEventListener('mouseenter', () => {
-            if (hoverCooldown) return;
-            hoverCooldown = true;
-            speakWelcome();
-            setTimeout(() => { hoverCooldown = false; }, 8000);
-        });
-    }
-});
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursorFollower');
 let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
@@ -157,6 +153,7 @@ window.addEventListener('scroll', () => {
         if (a.getAttribute('href') === '#' + current) a.classList.add('active');
     });
 });
+
 const sections = document.querySelectorAll('.section');
 function revealSections() {
     sections.forEach(s => {
@@ -193,6 +190,7 @@ const statsObserver = new IntersectionObserver(entries => {
     }
 }, { threshold: 0.5 });
 if (statsBar) statsObserver.observe(statsBar);
+
 const roles = [
     'Full Stack Developer',
     'PHP (Laravel) Developer',

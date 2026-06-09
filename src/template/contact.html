@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Portfolio Contact</title>
-
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #0f172a;
+            background: #060b14;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -22,48 +21,90 @@
             width: 600px;
             max-width: 100%;
             margin: auto;
-            background: #0b1220;
-            border-radius: 12px;
+            background: #0b1120;
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid #1f2937;
         }
 
         .header {
-            background: linear-gradient(135deg, #00d4aa, #0f172a);
+            background: linear-gradient(135deg, #ef4444 0%, #7f1d1d 60%, #060b14 100%);
             color: #ffffff;
-            padding: 30px;
+            padding: 36px 30px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(239, 68, 68, .25) 0%, transparent 70%);
+        }
+
+        .header-logo {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .logo-bracket {
+            color: #ef4444;
+            font-weight: 900;
         }
 
         .header h1 {
             margin: 0;
             font-size: 24px;
+            font-weight: 800;
+            position: relative;
         }
 
         .header p {
             margin-top: 8px;
             font-size: 14px;
-            opacity: 0.9;
+            opacity: .85;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 14px;
+            background: rgba(239, 68, 68, .15);
+            border: 1px solid rgba(239, 68, 68, .3);
+            color: #fca5a5;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 5px 16px;
+            border-radius: 100px;
+            position: relative;
         }
 
         .content {
-            padding: 30px;
+            padding: 32px 30px;
             color: #cbd5e1;
         }
 
         .content p {
             font-size: 15px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .info-table {
             width: 100%;
             border-spacing: 0;
-            margin-top: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .info-table td {
-            padding: 12px;
+            padding: 13px 16px;
             border: 1px solid #1f2937;
             font-size: 14px;
         }
@@ -71,33 +112,79 @@
         .label {
             width: 120px;
             background: #111827;
-            color: #00d4aa;
-            font-weight: bold;
+            color: #ef4444;
+            font-weight: 700;
         }
 
         .value {
-            background: #111827;
-        }
-
-        .message-box {
-            margin-top: 25px;
-            padding: 20px;
-            background: #0b2a24;
-            border-left: 4px solid #00d4aa;
-            border-radius: 8px;
+            background: #0f1729;
             color: #e2e8f0;
         }
 
+        .message-box {
+            margin-top: 24px;
+            padding: 20px 22px;
+            background: #160a0a;
+            border-left: 4px solid #ef4444;
+            border-radius: 0 10px 10px 0;
+            color: #e2e8f0;
+        }
+
+        .message-box strong {
+            color: #ef4444;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .message-box p {
+            margin-top: 10px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(239, 68, 68, .3), transparent);
+            margin: 24px 0;
+        }
+
+        .meta-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 13px;
+            color: #475569;
+            margin-top: 16px;
+        }
+
+        .meta-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ef4444;
+            display: inline-block;
+        }
+
         .footer {
-            background: #020617;
-            color: #94a3b8;
-            padding: 18px;
+            background: #030712;
+            border-top: 1px solid #1f2937;
+            color: #475569;
+            padding: 20px;
             text-align: center;
             font-size: 13px;
         }
 
         .footer strong {
-            color: #00d4aa;
+            color: #ef4444;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
         }
 
         @media(max-width:600px) {
@@ -109,56 +196,71 @@
 </head>
 
 <body>
-
     <div class="wrapper">
-        <table class="card">
+        <table class="card" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="header">
+                    <div class="header-logo"><span class="logo-bracket">&lt;</span>PJ<span
+                            class="logo-bracket">/&gt;</span></div>
                     <h1>📩 New Contact Message</h1>
-                    <p>Someone reached you via your portfolio 🚀</p>
+                    <p>Someone reached you via your portfolio</p>
+                    <span class="badge">🚀 Portfolio Notification</span>
                 </td>
             </tr>
             <tr>
                 <td class="content">
                     <p>
-                        Hello <strong style="color:#00d4aa;">Praveen</strong>,<br>
-                        You’ve received a new message from your portfolio contact form.
+                        Hello <strong style="color:#ef4444;">Praveen</strong>,<br>
+                        You've received a new message from your portfolio contact form. Here are the details:
                     </p>
-                    <table class="info-table">
+
+                    <table class="info-table" cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="label">👤 Name</td>
-                            <td class="value">
-                                <span style="color:#ffffff; font-family: Arial, Helvetica, sans-serif;">
-                                    {{name}}
-                                </span>
-                            </td>
+                            <td class="value"><span style="color:#fff; font-weight:600;">{{name}}</span></td>
                         </tr>
                         <tr>
                             <td class="label">📧 Email</td>
-                            <td class="value">
-                                <span style="color:#ffffff; font-family: Arial, Helvetica, sans-serif;">
-                                    {{email}}
-                                </span>
+                            <td class="value"><span style="color:#fff; font-weight:600;">{{email}}</span></td>
+                        </tr>
+                    </table>
+
+                    <div class="message-box">
+                        <strong>💬 Message</strong>
+                        <p>{{message}}</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="font-size:13px; color:#475569;">
+                                <span style="color:#ef4444;">●</span> &nbsp;Reply directly to <strong
+                                    style="color:#94a3b8;">{{email}}</strong> to respond
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="8"></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:13px; color:#475569;">
+                                <span style="color:#ef4444;">●</span> &nbsp;Aim to respond within 24 hours
                             </td>
                         </tr>
                     </table>
-                    <div class="message-box">
-                        <strong>💬 Message</strong>
-                        <p style="margin-top:10px; color:#e2e8f0; font-family: Arial, Helvetica, sans-serif;">
-                            {{message}}
-                        </p>
-                    </div>
                 </td>
             </tr>
             <tr>
                 <td class="footer">
-                    <strong>PRAVEEN</strong><br>
-                    Portfolio Contact Notification
+                    <div class="footer-logo"><span style="color:#ef4444;">&lt;</span>PJ<span
+                            style="color:#ef4444;">/&gt;</span></div>
+                    <strong>PRAVEEN J</strong> · Portfolio Contact Notification<br>
+                    <span style="font-size:12px; color:#334155; margin-top:4px; display:block;">This is an automated
+                        notification from your portfolio.</span>
                 </td>
             </tr>
         </table>
     </div>
-
 </body>
 
 </html>

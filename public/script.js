@@ -1,3 +1,52 @@
+let voiceHasPlayed = false;
+
+function speakWelcome() {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const msg = new SpeechSynthesisUtterance(
+        "Hi, I'm Praveen. Welcome to my portfolio. I'm a Full Stack Developer specializing in Node.js, Laravel, and PostgreSQL. Feel free to explore my work. If you have any queries, please reach out. Thank you!"
+    );
+    msg.rate = 0.92;
+    msg.pitch = 1.05;
+    msg.volume = 1;
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v => v.lang === 'en-US' && v.name.toLowerCase().includes('male'))
+        || voices.find(v => v.lang === 'en-US')
+        || voices.find(v => v.lang.startsWith('en'));
+    if (preferred) msg.voice = preferred;
+    window.speechSynthesis.speak(msg);
+    return msg;
+}
+
+window.addEventListener('load', () => {
+    if (voiceHasPlayed) return;
+    setTimeout(() => {
+        if (!voiceHasPlayed) {
+            speakWelcome();
+            voiceHasPlayed = true;
+        }
+    }, 1200);
+});
+
+window.speechSynthesis.onvoiceschanged = () => {
+    if (!voiceHasPlayed) {
+        speakWelcome();
+        voiceHasPlayed = true;
+    }
+};
+
+let hoverCooldown = false;
+document.addEventListener('DOMContentLoaded', () => {
+    const imgWrap = document.querySelector('.hero-img-wrap');
+    if (imgWrap) {
+        imgWrap.addEventListener('mouseenter', () => {
+            if (hoverCooldown) return;
+            hoverCooldown = true;
+            speakWelcome();
+            setTimeout(() => { hoverCooldown = false; }, 8000);
+        });
+    }
+});
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursorFollower');
 let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
@@ -19,7 +68,6 @@ animateFollower();
 
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
-let dots = [];
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -45,11 +93,12 @@ class Dot {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,229,195,${this.alpha})`;
+        ctx.fillStyle = `rgba(239,68,68,${this.alpha})`;
         ctx.fill();
     }
 }
 
+const dots = [];
 for (let i = 0; i < 80; i++) dots.push(new Dot());
 
 function drawConnections() {
@@ -62,7 +111,7 @@ function drawConnections() {
                 ctx.beginPath();
                 ctx.moveTo(dots[i].x, dots[i].y);
                 ctx.lineTo(dots[j].x, dots[j].y);
-                ctx.strokeStyle = `rgba(0,229,195,${0.05 * (1 - dist / 120)})`;
+                ctx.strokeStyle = `rgba(239,68,68,${0.05 * (1 - dist / 120)})`;
                 ctx.lineWidth = .5;
                 ctx.stroke();
             }
@@ -108,7 +157,6 @@ window.addEventListener('scroll', () => {
         if (a.getAttribute('href') === '#' + current) a.classList.add('active');
     });
 });
-
 const sections = document.querySelectorAll('.section');
 function revealSections() {
     sections.forEach(s => {
@@ -145,7 +193,6 @@ const statsObserver = new IntersectionObserver(entries => {
     }
 }, { threshold: 0.5 });
 if (statsBar) statsObserver.observe(statsBar);
-
 const roles = [
     'Full Stack Developer',
     'PHP (Laravel) Developer',
@@ -168,6 +215,42 @@ function typeRole() {
     setTimeout(typeRole, isDeleting ? 50 : 80);
 }
 typeRole();
+
+const serviceCards = document.querySelectorAll('.service-card');
+const serviceObserver = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('visible'), i * 100);
+        }
+    });
+}, { threshold: 0.2 });
+serviceCards.forEach(c => serviceObserver.observe(c));
+
+const certCards = document.querySelectorAll('.cert-card');
+const certObserver = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+    });
+}, { threshold: 0.15 });
+certCards.forEach(c => certObserver.observe(c));
+
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const rotX = ((y - cy) / cy) * 5;
+        const rotY = ((x - cx) / cx) * -5;
+        card.style.transform = `translateY(-8px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
 
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {

@@ -18,12 +18,15 @@
         }
 
         :root {
-            --accent: #00e5c3;
+            --accent: #ef4444;
+            --accent2: #dc2626;
             --bg: #060b14;
+            --bg2: #0b1120;
             --glass: rgba(255, 255, 255, 0.04);
             --glass-border: rgba(255, 255, 255, 0.08);
             --text: #e2e8f0;
             --muted: #64748b;
+            --glow: rgba(239, 68, 68, 0.15);
         }
 
         body {
@@ -46,7 +49,14 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            opacity: .3;
+            opacity: .35;
+        }
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .container {
@@ -57,10 +67,21 @@
             border-radius: 24px;
             padding: 64px 56px;
             text-align: center;
-            max-width: 520px;
+            max-width: 540px;
             width: 100%;
             backdrop-filter: blur(20px);
             animation: popIn .7s cubic-bezier(.175, .885, .32, 1.275) forwards;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
         }
 
         @keyframes popIn {
@@ -76,10 +97,10 @@
         }
 
         .icon-wrap {
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 229, 195, .1);
-            border: 2px solid rgba(0, 229, 195, .3);
+            width: 84px;
+            height: 84px;
+            background: rgba(239, 68, 68, .1);
+            border: 2px solid rgba(239, 68, 68, .35);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -87,6 +108,31 @@
             margin: 0 auto 28px;
             font-size: 36px;
             animation: bounceIn .8s .3s ease both;
+            box-shadow: 0 0 40px rgba(239, 68, 68, .15);
+            position: relative;
+        }
+
+        .icon-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1px solid rgba(239, 68, 68, .2);
+            animation: ringPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ringPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: .5;
+            }
+
+            50% {
+                transform: scale(1.12);
+                opacity: 0;
+            }
         }
 
         @keyframes bounceIn {
@@ -101,48 +147,169 @@
             }
         }
 
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            animation: fadeInDown .6s ease forwards;
+        }
+
+        .logo-bracket {
+            color: var(--accent);
+        }
+
         h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(32px, 6vw, 48px);
+            font-size: clamp(34px, 6vw, 50px);
             font-weight: 800;
             color: #fff;
             margin-bottom: 16px;
+            animation: fadeIn .7s .2s ease both;
         }
 
         h1 span {
             color: var(--accent);
         }
 
-        p {
-            color: var(--muted);
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 36px;
+        .subtitle {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+            animation: fadeIn .6s .1s ease both;
         }
 
-        a {
+        p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.75;
+            margin-bottom: 36px;
+            animation: fadeIn .7s .35s ease both;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, .08);
+            border: 1px solid rgba(239, 68, 68, .2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 32px;
+            animation: fadeIn .6s .15s ease both;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, .4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+            }
+        }
+
+        .checks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 36px;
+            text-align: left;
+            animation: fadeIn .7s .45s ease both;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text);
+            padding: 12px 16px;
+            background: rgba(239, 68, 68, .04);
+            border: 1px solid rgba(239, 68, 68, .1);
+            border-radius: 10px;
+        }
+
+        .check-item .chk {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(239, 68, 68, .15);
+            border: 1px solid rgba(239, 68, 68, .3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+
+        a.back-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: var(--accent);
-            color: var(--bg);
+            color: #fff;
             padding: 13px 30px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 14px;
             text-decoration: none;
             transition: all .3s;
+            font-family: 'Space Grotesk', sans-serif;
+            animation: fadeIn .7s .5s ease both;
         }
 
-        a:hover {
-            background: #00ffd5;
+        a.back-btn:hover {
+            background: #f87171;
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 229, 195, .3);
+            box-shadow: 0 12px 30px rgba(239, 68, 68, .3);
         }
 
-        @media (max-width:480px) {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
             .container {
-                padding: 44px 28px;
+                padding: 44px 24px;
             }
         }
     </style>
@@ -150,21 +317,55 @@
 
 <body>
     <canvas id="c"></canvas>
+
     <div class="container">
+        <div class="logo"><span class="logo-bracket">&lt;</span>PJ<span class="logo-bracket">/&gt;</span></div>
         <div class="icon-wrap">✉️</div>
+        <span class="subtitle">Message Received</span>
         <h1>Thank <span>You!</span></h1>
-        <p>Your message has been received. I'll get back to you as soon as possible — usually within 24 hours.</p>
-        <a href="index.html">← Back to Portfolio</a>
+        <div class="status-pill">
+            <span class="status-dot"></span>
+            Response within 24 hours
+        </div>
+        <p>Your message has been received. I'll review it and get back to you as soon as possible — usually within 24
+            hours.</p>
+        <div class="checks">
+            <div class="check-item"><span class="chk">✓</span> Message delivered successfully</div>
+            <div class="check-item"><span class="chk">✓</span> I'll review your query personally</div>
+            <div class="check-item"><span class="chk">⏱</span> Reply within 24 hrs</div>
+        </div>
+        <a href="index.html" class="back-btn">← Back to Portfolio</a>
     </div>
+
     <script>
         const c = document.getElementById('c');
         const ctx = c.getContext('2d');
         c.width = window.innerWidth; c.height = window.innerHeight;
-        const dots = Array.from({ length: 60 }, () => ({
+        window.addEventListener('resize', () => { c.width = window.innerWidth; c.height = window.innerHeight; });
+
+        const dots = Array.from({ length: 80 }, () => ({
             x: Math.random() * c.width, y: Math.random() * c.height,
-            r: Math.random() * 1.5 + .5, vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+            r: Math.random() * 1.5 + .5,
+            vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
             a: Math.random() * .5 + .1
         }));
+
+        function drawConnections() {
+            for (let i = 0; i < dots.length; i++) {
+                for (let j = i + 1; j < dots.length; j++) {
+                    const dx = dots[i].x - dots[j].x, dy = dots[i].y - dots[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(dots[i].x, dots[i].y);
+                        ctx.lineTo(dots[j].x, dots[j].y);
+                        ctx.strokeStyle = `rgba(239,68,68,${0.05 * (1 - dist / 120)})`;
+                        ctx.lineWidth = .5; ctx.stroke();
+                    }
+                }
+            }
+        }
+
         function frame() {
             ctx.clearRect(0, 0, c.width, c.height);
             dots.forEach(d => {
@@ -172,8 +373,9 @@
                 if (d.x < 0 || d.x > c.width) d.vx *= -1;
                 if (d.y < 0 || d.y > c.height) d.vy *= -1;
                 ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(0,229,195,${d.a})`; ctx.fill();
+                ctx.fillStyle = `rgba(239,68,68,${d.a})`; ctx.fill();
             });
+            drawConnections();
             requestAnimationFrame(frame);
         }
         frame();

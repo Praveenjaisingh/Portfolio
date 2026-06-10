@@ -2,24 +2,32 @@ let voiceHasPlayed = false;
 
 function speakWelcome() {
     if (!window.speechSynthesis) return;
+
     window.speechSynthesis.cancel();
+
     const msg = new SpeechSynthesisUtterance(
         "Hi, I'm Praveen. Welcome to my portfolio. I'm a Full Stack Developer specializing in Nodejs, Laravel, and PostgreSQL. Feel free to explore my work. If you have any queries, please reach out. Thank you!"
     );
+
     msg.rate = 0.92;
     msg.pitch = 1.05;
     msg.volume = 1;
 
     function assignVoiceAndSpeak() {
         const voices = window.speechSynthesis.getVoices();
-        const preferred = voices.find(v => v.lang === 'en-US' && v.name.toLowerCase().includes('male'))
-            || voices.find(v => v.lang === 'en-US')
-            || voices.find(v => v.lang.startsWith('en'));
+
+        const preferred =
+            voices.find(v => v.lang === "en-US" && v.name.toLowerCase().includes("male")) ||
+            voices.find(v => v.lang === "en-US") ||
+            voices.find(v => v.lang?.startsWith("en"));
+
         if (preferred) msg.voice = preferred;
+
         window.speechSynthesis.speak(msg);
     }
 
     const voices = window.speechSynthesis.getVoices();
+
     if (voices.length > 0) {
         assignVoiceAndSpeak();
     } else {
@@ -29,6 +37,17 @@ function speakWelcome() {
         };
     }
 }
+
+document.querySelectorAll('a[href="#projects"]').forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (localStorage.getItem("voicePlayed")) return;
+
+        setTimeout(() => {
+            speakWelcome();
+            localStorage.setItem("voicePlayed", "true");
+        }, 300);
+    });
+});
 
 function onFirstInteraction() {
     if (voiceHasPlayed) return;

@@ -38,17 +38,17 @@ function speakWelcome() {
     }
 }
 
-document.querySelectorAll('a[href="#projects"]').forEach(btn => {
-    btn.addEventListener("click", () => {
-        if (localStorage.getItem("voicePlayed")) return;
-
-        setTimeout(() => {
-            speakWelcome();
-            localStorage.setItem("voicePlayed", "true");
-        }, 300);
+// Dedicated button: always works, on every click, every visit.
+// A real click is a genuine user gesture, so the browser never blocks it.
+const voiceIntroBtn = document.getElementById('voiceIntroBtn');
+if (voiceIntroBtn) {
+    voiceIntroBtn.addEventListener('click', () => {
+        speakWelcome();
     });
-});
+}
 
+// Best-effort auto-play once per PAGE LOAD (not once ever) on first interaction,
+// since browsers block audio until the user has interacted with the page at least once.
 function onFirstInteraction() {
     if (voiceHasPlayed) return;
     voiceHasPlayed = true;

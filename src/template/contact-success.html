@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Received - Praveen J</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #060b14;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            padding: 40px 10px;
+        }
+
+        .card {
+            width: 600px;
+            max-width: 100%;
+            margin: auto;
+            background: #0b1120;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #1f2937;
+        }
+
+        .header {
+            background: linear-gradient(135deg,
+                    #ef4444 0%,
+                    #7f1d1d 60%,
+                    #060b14 100%);
+
+            color: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header-logo {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 14px;
+        }
+
+        .logo-bracket {
+            color: #ef4444;
+            font-weight: 900;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(34, 197, 94, .15);
+            border: 1px solid rgba(34, 197, 94, .35);
+            border-radius: 50%;
+
+            font-size: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 16px;
+
+            background: rgba(34, 197, 94, .12);
+            border: 1px solid rgba(34, 197, 94, .3);
+
+            color: #86efac;
+
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+
+            padding: 5px 16px;
+            border-radius: 100px;
+        }
+
+        .content {
+            padding: 34px 30px;
+            color: #cbd5e1;
+        }
+
+        .content p {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        .message-box {
+            margin-top: 24px;
+
+            padding: 20px 22px;
+
+            background: #160a0a;
+
+            border-left: 4px solid #ef4444;
+            border-radius: 0 10px 10px 0;
+
+            color: #e2e8f0;
+        }
+
+        .message-box strong {
+            color: #ef4444;
+
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .message-box p {
+            margin-top: 10px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .info-box {
+            margin-top: 24px;
+
+            padding: 18px 20px;
+
+            background: #111827;
+            border: 1px solid #1f2937;
+
+            border-radius: 10px;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .info-box strong {
+            color: #e2e8f0;
+        }
+
+        .divider {
+            height: 1px;
+
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(239, 68, 68, .3),
+                    transparent);
+
+            margin: 28px 0;
+        }
+
+        .footer {
+            background: #030712;
+
+            border-top: 1px solid #1f2937;
+
+            color: #475569;
+
+            padding: 22px;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        .footer strong {
+            color: #ef4444;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: #fff;
+
+            margin-bottom: 6px;
+
+            letter-spacing: 1px;
+        }
+
+        .footer-small {
+            font-size: 12px;
+            color: #334155;
+
+            margin-top: 6px;
+        }
+
+        @media(max-width:600px) {
+
+            .card {
+                width: 100%;
+            }
+
+            .content {
+                padding: 28px 20px;
+            }
+
+            .header {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <table class="card" cellpadding="0" cellspacing="0">
+
+            <!-- HEADER -->
+            <tr>
+                <td class="header">
+
+                    <div class="header-logo">
+                        <span class="logo-bracket">&lt;</span>PJ<span class="logo-bracket">/&gt;</span>
+                    </div>
+
+                    <div class="success-icon">
+                        ✓
+                    </div>
+
+                    <h1>Message Received!</h1>
+
+                    <p>
+                        Thank you for reaching out through my portfolio.
+                    </p>
+
+                    <span class="badge">
+                        ✓ MESSAGE SUCCESSFULLY SENT
+                    </span>
+
+                </td>
+            </tr>
+
+            <!-- CONTENT -->
+            <tr>
+                <td class="content">
+
+                    <p>
+                        Hi <strong class="highlight">{{name}}</strong>,
+                    </p>
+
+                    <p>
+                        Thank you for contacting me. I've successfully received your
+                        message and will review it as soon as possible.
+                    </p>
+
+                    <div class="message-box">
+
+                        <strong>
+                            💬 Your Message
+                        </strong>
+
+                        <p>
+                            {{message}}
+                        </p>
+
+                    </div>
+
+                    <div class="info-box">
+
+                        <p>
+                            <strong>📧 Email:</strong>
+                            {{email}}
+                        </p>
+
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <p>
+                        I usually try to respond within
+                        <strong style="color:#ef4444;">
+                            24 hours
+                        </strong>.
+                    </p>
+
+                    <p>
+                        If your request is urgent, you can also reach me directly
+                        through the contact details available on my portfolio.
+                    </p>
+
+                    <p style="margin-top:28px;">
+                        Best regards,<br>
+
+                        <strong style="color:#ef4444;">
+                            Praveen J
+                        </strong><br>
+
+                        <span style="color:#64748b;">
+                            Full Stack Developer
+                        </span>
+                    </p>
+
+                </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+
+                <td class="footer">
+
+                    <div class="footer-logo">
+
+                        <span style="color:#ef4444;">
+                            &lt;
+                        </span>PJ<span style="color:#ef4444;">
+                            /&gt;
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        PRAVEEN J
+                    </strong>
+                    · Full Stack Developer
+
+                    <div class="footer-small">
+                        This is an automated confirmation email from the portfolio.
+                    </div>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>

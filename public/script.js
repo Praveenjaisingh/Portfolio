@@ -295,17 +295,43 @@ if (contactForm) {
                 btn.innerHTML = '<span>Message Sent!</span><i class="bx bx-check"></i>';
                 setTimeout(() => window.location.href = '/Thankyou.html', 1000);
             } else {
-                alert(data.message || '❌ Failed to send message');
+                showToast(data.message || '❌ Failed to send message');
                 btn.innerHTML = '<span>Send Message</span><i class="bx bx-send"></i>';
                 btn.disabled = false;
             }
         } catch {
-            alert('❌ Server error');
+            showToast('❌ Server error');
             btn.innerHTML = '<span>Send Message</span><i class="bx bx-send"></i>';
             btn.disabled = false;
         }
     });
 }
+
+function showToast(message, type = 'error') {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    const toastIcon = document.getElementById('toastIcon');
+    if (!toast) return;
+    toastMessage.textContent = message;
+
+    toast.classList.remove('success', 'error');
+    toast.classList.add(type);
+
+    if (type === 'success') {
+        toastIcon.className = 'bx bx-check-circle';
+    } else {
+        toastIcon.className = 'bx bx-error-circle';
+    }
+
+    toast.classList.add('show');
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 4000);
+}
+
 
 const yr = document.getElementById('year');
 if (yr) yr.textContent = new Date().getFullYear();

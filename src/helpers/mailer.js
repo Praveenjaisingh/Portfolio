@@ -3,14 +3,13 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT),
-    secure: false, // TLS
+    secure: false, 
     auth: {
         user: process.env.SMTP_USERNAME,
         pass: process.env.SMTP_PASSWORD,
     },
 });
 
-// Verify SMTP once (safe for Vercel logs)
 transporter.verify((error) => {
     if (error) {
         console.error("❌ SMTP ERROR:", error);

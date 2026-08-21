@@ -332,6 +332,22 @@ function showToast(message, type = 'error') {
     }, 4000);
 }
 
+const whatsappBtn = document.getElementById('whatsappBtn');
+
+if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+        const phoneNumber = '918870346885';
+
+        const message =
+            "Hi Praveen, I visited your portfolio and would like to discuss an opportunity.";
+
+        const whatsappUrl =
+            `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, '_blank');
+    });
+}
+
 
 const yr = document.getElementById('year');
 if (yr) yr.textContent = new Date().getFullYear();

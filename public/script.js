@@ -386,3 +386,24 @@ function scrambleText(el) {
 document.querySelectorAll('.nav-links a[data-text]').forEach(link => {
     link.addEventListener('mouseenter', () => scrambleText(link));
 });
+const creativeProjectCards = document.querySelectorAll('.creative-project-card');
+creativeProjectCards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+        if (window.innerWidth <= 768) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX =
+            ((y - centerY) / centerY) * -4;
+        const rotateY =
+            ((x - centerX) / centerX) * 4;
+        card.style.transform =
+            `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+
+});

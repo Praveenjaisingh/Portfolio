@@ -1940,3 +1940,48 @@ a {
         bottom: 5px;
     }
 }
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .35), transparent 55%);
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+}
+
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:active {
+    transform: scale(.97);
+}
+
+/* Animated gradient shimmer on hero name */
+.name-line {
+    background: linear-gradient(90deg, var(--accent), #f97316, var(--accent2), var(--accent));
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: lineUp .8s ease forwards, nameShimmer 5s linear infinite 1s;
+}
+
+@keyframes nameShimmer {
+    to {
+        background-position: 300% center;
+    }
+}
+
+/* Text-scramble ready state for nav links (JS swaps the characters) */
+.nav-links a {
+    display: inline-block;
+    min-width: 1ch;
+}

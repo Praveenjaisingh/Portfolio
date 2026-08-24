@@ -351,3 +351,38 @@ if (whatsappBtn) {
 
 const yr = document.getElementById('year');
 if (yr) yr.textContent = new Date().getFullYear();
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+        btn.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+    });
+});
+
+const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function scrambleText(el) {
+    if (el.dataset.scrambling === 'true') return;
+    el.dataset.scrambling = 'true';
+    const finalText = el.dataset.text || el.textContent;
+    let frame = 0;
+    const totalFrames = 10;
+    const interval = setInterval(() => {
+        el.textContent = finalText
+            .split('')
+            .map((ch, i) => {
+                if (ch === ' ') return ' ';
+                if (i < frame - 3) return finalText[i];
+                return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+            })
+            .join('');
+        frame++;
+        if (frame > totalFrames + finalText.length) {
+            el.textContent = finalText;
+            el.dataset.scrambling = 'false';
+            clearInterval(interval);
+        }
+    }, 30);
+}
+document.querySelectorAll('.nav-links a[data-text]').forEach(link => {
+    link.addEventListener('mouseenter', () => scrambleText(link));
+});

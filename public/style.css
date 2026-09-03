@@ -20,8 +20,100 @@
     --glow: rgba(239, 68, 68, 0.15);
 }
 
+/* ===== Preloader ===== */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.preloader-count {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(48px, 10vw, 96px);
+    color: var(--white);
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.preloader-count span {
+    color: var(--accent);
+}
+
+.preloader-bar {
+    width: 180px;
+    height: 2px;
+    background: var(--glass-border);
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.preloader-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--accent);
+}
+
+.preloader-tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ===== Tech Marquee ===== */
+.marquee-strip {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    background: var(--glass);
+    padding: 16px 0;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    animation: marqueeScroll 22s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track span {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+.marquee-track .marquee-dot {
+    color: var(--accent);
+    font-size: 8px;
+}
+
+@keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
 }
 
 body {
@@ -30,6 +122,11 @@ body {
     color: var(--text);
     overflow-x: hidden;
     cursor: none;
+}
+
+body.loading {
+    overflow: hidden;
+    height: 100vh;
 }
 
 .cursor {
@@ -233,7 +330,6 @@ a {
     font-size: 13px;
     color: var(--accent);
     margin-bottom: 28px;
-    animation: fadeInDown .8s ease forwards;
 }
 
 .badge-dot {
@@ -269,6 +365,7 @@ a {
 
 .name-line {
     color: var(--accent);
+    overflow: hidden;
 }
 
 .line-reveal {
@@ -319,16 +416,12 @@ a {
     max-width: 500px;
     line-height: 1.8;
     margin-bottom: 36px;
-    animation: fadeIn .8s .4s ease forwards;
-    opacity: 0;
 }
 
 .hero-buttons {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
-    animation: fadeIn .8s .5s ease forwards;
-    opacity: 0;
 }
 
 .btn {
@@ -378,8 +471,6 @@ a {
     display: flex;
     gap: 14px;
     margin-top: 36px;
-    animation: fadeIn .8s .6s ease forwards;
-    opacity: 0;
 }
 
 .social-link {

@@ -1,3 +1,118 @@
+/* =========================================================
+   PRELOADER + SMOOTH SCROLL (Lenis) + GSAP HERO INTRO
+   ========================================================= */
+document.body.classList.add('loading');
+
+let lenis;
+function initLenis() {
+    if (typeof Lenis === 'undefined') return;
+    lenis = new Lenis({
+        duration: 1.1,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+    });
+
+    if (window.gsap && window.ScrollTrigger) {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(time => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+    } else {
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    }
+
+    // Make in-page nav / hero links scroll smoothly via Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            const id = link.getAttribute('href');
+            if (!id || id === '#') return;
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -70, duration: 1.2 });
+        });
+    });
+}
+
+function playHeroIntro() {
+    if (!window.gsap) return;
+
+    gsap.set('.hero-badge, .hero-role, .hero-desc, .hero-buttons, .hero-socials', {
+        opacity: 0,
+        y: 16
+    });
+    gsap.set('.hero-visual', { opacity: 0, scale: 0.9 });
+
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+    tl.to('.hero-badge', { opacity: 1, y: 0, duration: 0.6 }, 0.05)
+        .to('.hero-role', { opacity: 1, y: 0, duration: 0.6 }, 0.5)
+        .to('.hero-desc', { opacity: 1, y: 0, duration: 0.6 }, 0.6)
+        .to('.hero-buttons', { opacity: 1, y: 0, duration: 0.6 }, 0.7)
+        .to('.hero-socials', { opacity: 1, y: 0, duration: 0.6 }, 0.8)
+        .to('.hero-visual', { opacity: 1, scale: 1, duration: 0.9, ease: 'power3.out' }, 0.35);
+}
+
+function runPreloader() {
+    const preloader = document.getElementById('preloader');
+    const percentEl = document.getElementById('preloaderPercent');
+    const fillEl = document.getElementById('preloaderFill');
+    if (!preloader) { playHeroIntro(); return; }
+
+    const counter = { val: 0 };
+    const finish = () => {
+        document.body.classList.remove('loading');
+        if (window.gsap) {
+            gsap.to(preloader, {
+                yPercent: -100,
+                duration: 0.8,
+                ease: 'power4.inOut',
+                onComplete: () => preloader.remove()
+            });
+        } else {
+            preloader.style.display = 'none';
+        }
+        playHeroIntro();
+    };
+
+    if (window.gsap) {
+        gsap.to(counter, {
+            val: 100,
+            duration: 1.6,
+            ease: 'power2.inOut',
+            onUpdate: () => {
+                const v = Math.floor(counter.val);
+                percentEl.textContent = v;
+                if (fillEl) fillEl.style.width = v + '%';
+            },
+            onComplete: finish
+        });
+    } else {
+        percentEl.textContent = 100;
+        if (fillEl) fillEl.style.width = '100%';
+        setTimeout(finish, 600);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initLenis();
+    runPreloader();
+
+    // Safety net: if something goes wrong (slow/blocked CDN, thrown error),
+    // never leave the page stuck hidden.
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) preloader.remove();
+        document.body.classList.remove('loading');
+        document.querySelectorAll('.hero-badge, .hero-role, .hero-desc, .hero-buttons, .hero-socials, .hero-visual')
+            .forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    }, 4000);
+});
+
+/* ========================================================= */
+
 let voiceHasPlayed = false;
 
 function speakWelcome() {

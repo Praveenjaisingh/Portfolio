@@ -329,7 +329,7 @@ const roles = [
     'Full Stack Developer',
     'PHP (Laravel) Developer',
     'Node.js Engineer',
-    'Core Java Developer'
+    'Java (Spring Boot) Developer'
 ];
 let roleIndex = 0, charIndex = 0, isDeleting = false;
 const roleEl = document.getElementById('roleText');

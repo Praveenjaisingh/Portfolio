@@ -935,6 +935,13 @@ a {
     width: var(--w);
 }
 
+.skill-icon .skill-img {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    display: block;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -2420,5 +2427,6 @@ a {
         height: 50px;
         font-size: 23px;
     }
-
 }
+
+
